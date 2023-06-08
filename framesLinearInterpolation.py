@@ -32,6 +32,7 @@ def linear_interpolation(x1, y1, x2, y2):
 framesX = [2, 4, 6, 8, 10]
 secondsY = [1, 2, 3, 4, 5] 
 
+
 # Número de frames a adicionar entre cada par de frames originais (x1 e x2)
 framesToAdd = 5
 
