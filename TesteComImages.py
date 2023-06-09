@@ -5,14 +5,13 @@ from PIL import Image
 
 # Função de interpolação linear
 def linear_interpolation(j, x1, y1, x2, y2):
-    x = x1 + (j+1) * (x2 - x1) / (num_frames_to_add  + 1)
+    #x = x1 + (j+1) * (x2 - x1) / (num_frames_to_add  + 1)
     return y1 + (x - x1) * ((y2 - y1) / (x2 - x1))
 
 # Frames originais (imagens)
-image1 = Image.open("imagem1.jpg") #seria o primeiro x,y
-image2 = Image.open("imagem2.jpg") #x2,y2
-image3 = Image.open("imagem3.jpg") #x3, y3
-image4 = Image.open("imagem4.jpg") #x4, y4
+image1 = Image.open("1.png") #seria o primeiro x,y
+image2 = Image.open("2.png") #x2,y2
+image3 = Image.open("3.png") #x3, y3
 
 
 # Número de frames a adicionar entre cada par de frames originais
@@ -23,17 +22,15 @@ num_frames_to_add = 10
 interp_images = []
 for i in range(num_frames_to_add):
     t = (i + 1) / (num_frames_to_add + 1)
-    t = linear_interpolation(j, )
+    #t = linear_interpolation(j, )
     interp_image = Image.blend(image1, image2, t)
     interp_image2 = Image.blend(image2, image3, t)
-    interp_image3 = Image.blend(image3, image4, t)
-    interp_image4 = Image.blend(image4, image3, t)
-    interp_image5 = Image.blend(image3, image2, t)
+    interp_image3 = Image.blend(image3, image2, t)
+    interp_image4 = Image.blend(image2, image1, t)
     interp_images.append(interp_image)
     interp_images.append(interp_image2)
     interp_images.append(interp_image3)
     interp_images.append(interp_image4)
-    interp_images.append(interp_image5)
 
 # Função de atualização dos frames na animação
 def update_frame(frame):
